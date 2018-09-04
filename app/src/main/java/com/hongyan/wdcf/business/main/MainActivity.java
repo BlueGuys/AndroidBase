@@ -76,20 +76,20 @@ public class MainActivity extends TabActivity {
 
     @Subscribe(threadMode = ThreadMode.POSTING)
     public void tokenEvent(TokenMessageEvent message) {
-        if (message == null) {
-            return;
-        }
-        AccountManager.getInstance().logout();
-        AccountManager.getInstance().checkLogin();
+//        if (message == null) {
+//            return;
+//        }
+//        AccountManager.getInstance().logout();
+//        AccountManager.getInstance().checkLogin();
     }
 
     @Override
     protected void select(int position) {
         super.select(position);
-        if (position == 2) {
-            AccountManager.getInstance().checkLogin();
-        }
-        EventBus.getDefault().post(new TabChangeEvent(position));
+//        if (position == 2) {
+//            AccountManager.getInstance().checkLogin();
+//        }
+//        EventBus.getDefault().post(new TabChangeEvent(position));
     }
 
     @Override

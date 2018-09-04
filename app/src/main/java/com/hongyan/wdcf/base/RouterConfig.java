@@ -30,6 +30,7 @@ import com.hongyan.wdcf.business.teacher.orderstatus.OrderStatusActivity;
 import com.hongyan.wdcf.business.teacher.subscribe.SubscribeActivity;
 import com.hongyan.wdcf.business.teacher.addrecord.AddRecordActivity;
 import com.hongyan.wdcf.business.teacher.info.TeacherInfoActivity;
+import com.hongyan.wdcf.business.test.asynctask.AsyncTaskTestActivity;
 import com.hongyan.wdcf.business.user.study.StudyListActivity;
 
 public final class RouterConfig {
@@ -82,6 +83,7 @@ public final class RouterConfig {
         RouterConst.addRouter(UserStudyList, StudyListActivity.class.getName());
         RouterConst.addRouter(UserActivityDetail, ActivityDetailActivity.class.getName());
         RouterConst.addRouter(UserActivityPDF, PDFViewActivity.class.getName());
+        RouterConst.addRouter(TestAsyncTask, AsyncTaskTestActivity.class.getName());
     }
 
     public static final String UserLoginIndex = "native://user/login/index";
@@ -168,5 +170,10 @@ public final class RouterConfig {
      * 打开PDF
      */
     public static final String UserActivityPDF = "native://user/activity/pdf";
+
+    /**
+     * 打开PDF
+     */
+    public static final String TestAsyncTask = "native://test/activity/async";
 
 }
