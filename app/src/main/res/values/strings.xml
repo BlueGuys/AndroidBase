@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">五道财富011</string>
+    <string name="person_information">个人信息</string>
+    <string name="login">登录</string>
+    <string name="list">列表</string>
+    <string name="register">注册</string>
+    <string name="setting">设置</string>
+    <string name="register_now">立即注册</string>
+    <string name="user_feedback">用户反馈</string>
+    <string name="password_manage">密码管理</string>
+    <string name="modify_loginpassword">修改登录密码</string>
+    <string name="modify_tradepassword">交易密码管理</string>
+    <string name="my_bankcard">我的银行卡</string>
+    <string name="bind_bankcard">添加银行卡</string>
+    <string name="my_order_list">我的订单</string>
+    <string name="share_and_invite">分享邀请</string>
+    <string name="customer_info">客户信息</string>
+    <string name="subscribe_handle">预约处理</string>
+    <string name="invite_you">邀请您加入</string>
+    <string name="add_record">添加客户沟通记录</string>
+    <string name="fixed_profit">类固定收益</string>
+    <string name="si_mu">私募股权</string>
+    <string name="overseas">海外投资</string>
+    <string name="insurance_service">保险服务</string>
+    <string name="introduction_info">个人介绍</string>
+    <string name="order_status_setting">受理状态设置</string>
+    <string name="customer">客户</string>
+    <string name="order_detail">订单详情</string>
+</resources>

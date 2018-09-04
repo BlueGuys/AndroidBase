@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eff2f6">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/icon_login_header" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/ds100"
+            android:src="@drawable/icon_logo" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/inputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="@dimen/ds30"
+        android:layout_marginRight="@dimen/ds30"
+        android:background="@drawable/bg_corner_white"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/ds40"
+        android:paddingLeft="@dimen/ds70"
+        android:paddingRight="@dimen/ds70"
+        android:paddingTop="@dimen/ds40">
+
+        <EditText
+            android:id="@+id/et_mobile_phone"
+            style="@style/editText_normal"
+            android:hint="请输入11为手机号码"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/et_password"
+            style="@style/editText_normal"
+            android:layout_marginTop="@dimen/ds20"
+            android:hint="请设置密码"
+            android:inputType="textPassword" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/et_verify_code"
+                style="@style/editText_normal"
+                android:layout_marginTop="@dimen/ds20"
+                android:hint="请输入手机验证码"
+                android:inputType="number" />
+
+            <TextView
+                android:id="@+id/tv_send_code"
+                android:layout_width="@dimen/ds100"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/et_verify_code"
+                android:layout_alignParentRight="true"
+                android:text="获取验证码"
+                android:textColor="@color/appColor"
+                android:textSize="13dp" />
+        </RelativeLayout>
+
+
+        <Button
+            android:id="@+id/register"
+            style="@style/button_normal"
+            android:layout_marginTop="@dimen/ds60"
+            android:text="立即注册" />
+    </LinearLayout>
+
+    <com.hongyan.wdcf.business.account.IdentityView
+        android:id="@+id/identityView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/inputLayout"
+        android:layout_marginTop="@dimen/ds30" />
+
+    <TextView
+        android:id="@+id/tv_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="@dimen/ds30"
+        android:text="返回上一页"
+        android:textColor="@color/appColorNegative"
+        android:textSize="13dp" />
+</RelativeLayout>

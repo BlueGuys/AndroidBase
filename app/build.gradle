@@ -1,0 +1,51 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        release {
+            keyAlias 'china'
+            keyPassword '123456'
+            storeFile file('/Users/wangning/Code/github/WDCF/app/wdcf')
+            storePassword '123456'
+        }
+    }
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "com.hongyan.wdcf"
+        minSdkVersion 15
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        debug {
+            signingConfig signingConfigs.release
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+    implementation 'com.google.zxing:core:3.3.0'
+    implementation 'es.voghdev.pdfviewpager:library:1.0.3'
+    //zxing核心依赖umeng-common-1.5.3.jar
+    implementation 'com.journeyapps:zxing-android-embedded:3.3.0'
+    implementation 'com.joanzapata.pdfview:android-pdfview:1.0.4@aar'
+    //生成二维码依赖
+    implementation 'com.feezu.liuli:timeselector:1.1.3'
+    implementation 'com.squareup.okhttp3:okhttp:3.6.0'
+    implementation project(':lib_base')
+    implementation project(':lib_network')
+    implementation project(':lib_test')
+    implementation project(':lib_utils')
+    implementation project(':lib_widget')
+    implementation project(':lib_PullToRefresh')
+}
