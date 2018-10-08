@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eff2f6"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ds400" />
+
+    <Button
+        android:id="@+id/btn_start"
+        style="@style/button_normal"
+        android:layout_marginLeft="@dimen/ds50"
+        android:layout_marginRight="@dimen/ds50"
+        android:layout_marginTop="@dimen/ds30"
+        android:text="获取" />
+
+</LinearLayout>

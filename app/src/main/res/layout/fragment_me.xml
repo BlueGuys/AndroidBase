@@ -17,6 +17,11 @@
             style="@style/item_a"
             app:desc=""
             app:title="下载项目" />
+        <com.hongyan.wdcf.widget.ItemA
+            android:id="@+id/item_02"
+            style="@style/item_a"
+            app:desc=""
+            app:title="禁止在模拟器运行" />
     </LinearLayout>
 
 </ScrollView>

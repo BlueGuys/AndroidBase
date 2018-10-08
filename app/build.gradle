@@ -12,7 +12,7 @@ android {
     compileSdkVersion 26
     defaultConfig {
         applicationId "com.hongyan.wdcf"
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
@@ -48,4 +48,5 @@ dependencies {
     implementation project(':lib_utils')
     implementation project(':lib_widget')
     implementation project(':lib_PullToRefresh')
+    implementation 'com.lahm.library:easy-protector-release:1.0.4'
 }
