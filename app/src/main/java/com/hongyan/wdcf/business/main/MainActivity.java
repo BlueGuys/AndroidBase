@@ -1,9 +1,17 @@
 package com.hongyan.wdcf.business.main;
 
 
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.KeyEvent;
+import android.widget.Toast;
 
 import com.hongyan.base.BaseViewHolder;
 import com.hongyan.base.TokenMessageEvent;
@@ -25,8 +33,14 @@ import java.util.ArrayList;
 
 public class MainActivity extends TabActivity {
 
+    public final static String TAG = MainActivity.class.getSimpleName();
     private long exitTime = 0;
     private final static long DOUBLE_BACK_TIME = 2000; // 两次back的间隔时间：2s
+
+    /**
+     * 权限请求码
+     */
+    private final static int PERMISSION_REQUEST_CODE = 0x111;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -111,5 +125,33 @@ public class MainActivity extends TabActivity {
             }
         }
         return true;
+    }
+
+    /**
+     * 请求相机权限
+     */
+    private void requestPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if ((ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) || (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)) {
+                if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.CAMERA)) {
+                    Toast.makeText(this, "Please grant camera permission first", Toast.LENGTH_SHORT).show();
+                } else if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+                    Toast.makeText(this, "Please grant camera permission first", Toast.LENGTH_SHORT).show();
+                } else {
+                    ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA}, PERMISSION_REQUEST_CODE);
+                    Log.e(TAG, "请求系统sd卡写权限和相机权限");
+                }
+            }
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String permissions[], @NonNull int[] grantResults) {
+        if (requestCode == PERMISSION_REQUEST_CODE) {
+            if (grantResults.length == 2) {
+                Log.e(TAG, "sd卡权限:" + grantResults[0]);
+                Log.e(TAG, "相机权限:" + grantResults[1]);
+            }
+        }
     }
 }
