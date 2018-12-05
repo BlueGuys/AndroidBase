@@ -26,6 +26,7 @@ public class MeFragment extends BaseFragment implements View.OnClickListener {
     private View view;
     private ItemA item01;
     private ItemA item02;
+    private ItemA item03;
 
     @Nullable
     @Override
@@ -33,8 +34,10 @@ public class MeFragment extends BaseFragment implements View.OnClickListener {
         view = inflater.inflate(R.layout.fragment_me, container, false);
         item01 = view.findViewById(R.id.item_01);
         item02 = view.findViewById(R.id.item_02);
+        item03 = view.findViewById(R.id.item_03);
         item01.setOnClickListener(this);
         item02.setOnClickListener(this);
+        item03.setOnClickListener(this);
         return view;
     }
 
@@ -46,6 +49,9 @@ public class MeFragment extends BaseFragment implements View.OnClickListener {
                 break;
             case R.id.item_02:
                 RouterManager.getInstance().openUrl(new Router(RouterConfig.TestDevice));
+                break;
+            case R.id.item_03:
+                RouterManager.getInstance().openUrl(new Router(RouterConfig.UserUserFeedback));
                 break;
         }
     }

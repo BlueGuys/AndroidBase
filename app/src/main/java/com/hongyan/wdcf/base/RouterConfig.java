@@ -5,7 +5,7 @@ import com.hongyan.base.router.RouterConst;
 import com.hongyan.wdcf.business.account.bankcard.BankCardListActivity;
 import com.hongyan.wdcf.business.account.bankcard.BindBankCardActivity;
 import com.hongyan.wdcf.business.account.bindteacher.BindTeacherActivity;
-import com.hongyan.wdcf.business.account.feedback.FeedbackActivity;
+import com.hongyan.wdcf.business.account.feedback.DeviceInfoActivity;
 import com.hongyan.wdcf.business.account.order.OrderDetailActivity;
 import com.hongyan.wdcf.business.teacher.activitydetail.ActivityDetailActivity;
 import com.hongyan.wdcf.business.teacher.customerList.CustomerAllListActivity;
@@ -58,7 +58,7 @@ public final class RouterConfig {
         RouterConst.addRouter(UserRegisterIndex, RegisterActivity.class.getName());
         RouterConst.addRouter(UserRegisterSelect, SelectIdentifyActivity.class.getName());
         RouterConst.addRouter(UserInfoIndex, UserInfoActivity.class.getName());
-        RouterConst.addRouter(UserUserFeedback, FeedbackActivity.class.getName());
+        RouterConst.addRouter(UserUserFeedback, DeviceInfoActivity.class.getName());
         RouterConst.addRouter(UserUserSetting, SettingActivity.class.getName());
         RouterConst.addRouter(UserModifyPassword, PasswordActivity.class.getName());
         RouterConst.addRouter(UserBankCardList, BankCardListActivity.class.getName());

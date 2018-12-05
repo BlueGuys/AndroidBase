@@ -2,7 +2,6 @@ package com.hongyan.wdcf.business.account.feedback;
 
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 
 import com.hongyan.base.BaseActivity;
 import com.hongyan.base.BaseResult;
@@ -11,19 +10,12 @@ import com.hongyan.base.IViewHolder;
 import com.hongyan.base.RequestBean;
 import com.hongyan.wdcf.R;
 
-/**
- * Created by wangning on 2018/6/10.
- */
+public class FeedbackHolder extends BaseViewHolder implements IViewHolder {
 
-public class FeedbackHolder extends BaseViewHolder implements IViewHolder, View.OnClickListener {
-
-    private FeedbackModel feedbackModel;
-    private EditText etFeedback;
-    private EditText etEmail;
+    private DeviceInfoView deviceInfoView;
 
     public FeedbackHolder(BaseActivity mActivity) {
         super(mActivity);
-        feedbackModel = new FeedbackModel(this);
     }
 
     @Override
@@ -45,14 +37,19 @@ public class FeedbackHolder extends BaseViewHolder implements IViewHolder, View.
     public void initView(View rootView) {
         addLeftButtonDefault();
         Button buttonCommit = rootView.findViewById(R.id.btn_commit);
-        etFeedback = rootView.findViewById(R.id.et_feedback);
-        etEmail = rootView.findViewById(R.id.et_email);
-        buttonCommit.setOnClickListener(this);
+        deviceInfoView = rootView.findViewById(R.id.view_device);
+        buttonCommit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DeviceInfo deviceInfo = DeviceUtils.getInstance(mActivity).exec();
+                deviceInfoView.setText(deviceInfo.toString());
+            }
+        });
     }
 
     @Override
     public int getNavigationTitle() {
-        return R.string.user_feedback;
+        return R.string.get_device_info;
     }
 
     @Override
@@ -67,20 +64,5 @@ public class FeedbackHolder extends BaseViewHolder implements IViewHolder, View.
     @Override
     public boolean onRequestFail() {
         return false;
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.btn_commit:
-                String content = etFeedback.getText().toString();
-                if (content.length() < 15) {
-                    showErrorToast("字数太少");
-                    return;
-                }
-                String email = etEmail.getText().toString();
-                feedbackModel.commit(content, email);
-                break;
-        }
     }
 }

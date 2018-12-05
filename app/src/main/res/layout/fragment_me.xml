@@ -22,6 +22,11 @@
             style="@style/item_a"
             app:desc=""
             app:title="禁止在模拟器运行" />
+        <com.hongyan.wdcf.widget.ItemA
+            android:id="@+id/item_03"
+            style="@style/item_a"
+            app:desc=""
+            app:title="获取设备信息" />
     </LinearLayout>
 
 </ScrollView>
