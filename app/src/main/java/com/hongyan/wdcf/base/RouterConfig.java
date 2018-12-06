@@ -2,6 +2,7 @@ package com.hongyan.wdcf.base;
 
 
 import com.hongyan.base.router.RouterConst;
+import com.hongyan.wdcf.business.test.textview.TextViewTestActivity;
 import com.hongyan.wdcf.device.DeviceInfoActivity;
 import com.hongyan.wdcf.business.test.asynctask.AsyncTaskTestActivity;
 import com.hongyan.wdcf.business.test.device.DeviceTestActivity;
@@ -30,6 +31,7 @@ public final class RouterConfig {
         RouterConst.addRouter(UserActivityPDF, PDFViewActivity.class.getName());
         RouterConst.addRouter(TestAsyncTask, AsyncTaskTestActivity.class.getName());
         RouterConst.addRouter(TestDevice, DeviceTestActivity.class.getName());
+        RouterConst.addRouter(TestTextView, TextViewTestActivity.class.getName());
     }
 
     public static final String UserLoginIndex = "native://user/login/index";
@@ -75,6 +77,11 @@ public final class RouterConfig {
      * DeviceTest
      */
     public static final String TestDevice = "native://test/activity/device";
+
+    /**
+     * DeviceTest
+     */
+    public static final String TestTextView = "native://test/activity/textView";
 
 
 }

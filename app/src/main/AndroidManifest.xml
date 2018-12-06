@@ -37,6 +37,7 @@
         <activity android:name=".business.test.asynctask.AsyncTaskTestActivity" />
         <activity android:name=".business.test.device.DeviceTestActivity" />
         <activity android:name=".business.test.mp3.Mp3TestActivity" />
+        <activity android:name=".business.test.textview.TextViewTestActivity" />
     </application>
 
 </manifest>

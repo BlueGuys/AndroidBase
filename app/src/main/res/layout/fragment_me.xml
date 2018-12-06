@@ -9,24 +9,32 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/ds10"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="@dimen/ds10">
 
         <com.hongyan.wdcf.widget.ItemA
             android:id="@+id/item_01"
             style="@style/item_a"
             app:desc=""
             app:title="下载项目" />
+
         <com.hongyan.wdcf.widget.ItemA
             android:id="@+id/item_02"
             style="@style/item_a"
             app:desc=""
             app:title="禁止在模拟器运行" />
+
         <com.hongyan.wdcf.widget.ItemA
             android:id="@+id/item_03"
             style="@style/item_a"
             app:desc=""
             app:title="获取设备信息" />
+
+        <com.hongyan.wdcf.widget.ItemA
+            android:id="@+id/item_04"
+            style="@style/item_a"
+            app:desc=""
+            app:title="测试TextView" />
     </LinearLayout>
 
 </ScrollView>
