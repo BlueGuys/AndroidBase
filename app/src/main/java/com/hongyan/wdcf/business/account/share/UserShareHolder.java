@@ -9,7 +9,6 @@ import com.hongyan.base.BaseViewHolder;
 import com.hongyan.base.IViewHolder;
 import com.hongyan.base.RequestBean;
 import com.hongyan.wdcf.R;
-import com.hongyan.wdcf.business.account.order.OrderListResult;
 import com.hongyan.wdcf.utils.ZxingUtils;
 import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMShareListener;

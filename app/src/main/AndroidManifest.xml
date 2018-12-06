@@ -30,47 +30,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".business.account.register.RegisterActivity" />
         <activity android:name=".base.BaseWebViewActivity" />
         <activity
             android:name="com.hongyan.TestActivity"
             android:launchMode="singleTask" />
-        <activity android:name=".business.account.select.SelectIdentifyActivity" />
-        <activity
-            android:name=".business.account.login.LoginActivity"
-            android:launchMode="singleTop" />
-        <activity android:name=".business.account.user.UserInfoActivity" />
+
         <activity android:name=".business.account.feedback.DeviceInfoActivity" />
-        <activity android:name=".business.account.setting.SettingActivity" />
-        <activity android:name=".business.account.password.PasswordActivity" />
-        <activity android:name=".business.account.bankcard.BankCardListActivity" />
-        <activity android:name=".business.account.bankcard.BindBankCardActivity" />
-        <activity android:name=".business.account.bindteacher.BindTeacherActivity" />
-        <activity android:name=".business.account.modifyloginpassword.ModifyLoginPasswordActivity" />
-        <activity android:name=".business.account.modifytradepassword.ModifyTradePasswordActivity" />
-        <activity android:name=".business.account.order.OrderListActivity" />
         <activity android:name=".business.account.share.UserShareActivity" />
-        <activity android:name=".business.teacher.customer.CustomerListActivity" />
-        <activity android:name=".business.teacher.subscribe.SubscribeActivity" />
-        <activity android:name=".business.teacher.invite.InviteActivity" />
-        <activity android:name=".business.teacher.addrecord.AddRecordActivity" />
-        <activity android:name=".business.product.fixed.FixedProductListActivity" />
-        <activity android:name=".business.product.equity.SimuListActivity" />
-        <activity android:name=".business.product.overseas.OverseasProductListActivity" />
-        <activity android:name=".business.product.insurance.InsuranceListActivity" />
-        <activity android:name=".business.teacher.info.TeacherInfoActivity" />
-        <activity android:name=".business.teacher.introduction.ModifyIntroductionActivity" />
-        <activity android:name=".business.teacher.orderstatus.OrderStatusActivity" />
-        <activity android:name=".business.teacher.customerList.CustomerAllListActivity" />
-        <activity android:name=".business.account.order.OrderDetailActivity" />
-        <activity android:name=".business.user.study.StudyListActivity" />
-        <activity android:name=".business.teacher.activitydetail.ActivityDetailActivity" />
-        <activity
-            android:name=".wxapi.WXEntryActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:exported="true"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity
             android:name="com.tencent.tauth.AuthActivity"
             android:launchMode="singleTask"
