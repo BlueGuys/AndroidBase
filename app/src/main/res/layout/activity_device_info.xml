@@ -6,18 +6,13 @@
     android:orientation="vertical">
 
     <com.hongyan.wdcf.business.account.feedback.DeviceInfoView
-        android:id="@+id/view_device"
+        android:id="@+id/view_device_info"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_height="wrap_content" />
 
-    <Button
-        android:id="@+id/btn_commit"
-        style="@style/button_normal"
-        android:layout_marginBottom="@dimen/ds40"
-        android:layout_marginLeft="@dimen/ds100"
-        android:layout_marginRight="@dimen/ds100"
-        android:layout_marginTop="@dimen/ds40"
-        android:text="获取" />
+    <com.hongyan.wdcf.business.account.feedback.DeviceUIView
+        android:id="@+id/view_device_ui"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

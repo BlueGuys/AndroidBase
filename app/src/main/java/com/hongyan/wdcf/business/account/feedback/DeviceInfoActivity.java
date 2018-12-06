@@ -14,6 +14,6 @@ public class DeviceInfoActivity extends BaseActivity {
 
     @Override
     protected BaseViewHolder getViewHolder() {
-        return new FeedbackHolder(this);
+        return new DeviceHolder(this);
     }
 }

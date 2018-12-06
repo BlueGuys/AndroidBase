@@ -10,11 +10,12 @@ import com.hongyan.base.IViewHolder;
 import com.hongyan.base.RequestBean;
 import com.hongyan.wdcf.R;
 
-public class FeedbackHolder extends BaseViewHolder implements IViewHolder {
+public class DeviceHolder extends BaseViewHolder implements IViewHolder {
 
     private DeviceInfoView deviceInfoView;
+    private DeviceUIView deviceUIView;
 
-    public FeedbackHolder(BaseActivity mActivity) {
+    public DeviceHolder(BaseActivity mActivity) {
         super(mActivity);
     }
 
@@ -36,15 +37,10 @@ public class FeedbackHolder extends BaseViewHolder implements IViewHolder {
     @Override
     public void initView(View rootView) {
         addLeftButtonDefault();
-        Button buttonCommit = rootView.findViewById(R.id.btn_commit);
-        deviceInfoView = rootView.findViewById(R.id.view_device);
-        buttonCommit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DeviceInfo deviceInfo = DeviceUtils.getInstance(mActivity).exec();
-                deviceInfoView.setText(deviceInfo.toString());
-            }
-        });
+        deviceInfoView = rootView.findViewById(R.id.view_device_info);
+        deviceUIView = rootView.findViewById(R.id.view_device_ui);
+        DeviceInfo deviceInfo = DeviceUtils.getInstance(mActivity).exec();
+        deviceInfoView.setText(deviceInfo.toString());
     }
 
     @Override
