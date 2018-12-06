@@ -44,6 +44,11 @@ public class DeviceHolder extends BaseViewHolder implements IViewHolder {
     }
 
     @Override
+    protected boolean hideNavigationView() {
+        return true;
+    }
+
+    @Override
     public int getNavigationTitle() {
         return R.string.get_device_info;
     }
