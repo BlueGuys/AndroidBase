@@ -30,15 +30,9 @@ public class WDApplication extends BaseApplication {
         AccountManager.getInstance().init();
         ImageLoaderOptionHelper.getInstance().initImageLoader(this);
         ToastsUtils.register(this);
-        UMConfigure.init(this, "5b6fd8b8a40fa3274c00039c", "umeng", UMConfigure.DEVICE_TYPE_PHONE, "");
-        PlatformConfig.setWeixin("wx1341921c649344b5", "f6435d2f326a5be7ca174c3490280d2f");
-        PlatformConfig.setQQZone("1107393925", "eED7IKonDsTw2e7E");
-        UMConfigure.setLogEnabled(true);
-        UMShareAPI.get(this);
         displayInfo(this);
         Log.e("DisplayUtil", checkDeviceHasNavigationBar(this) ? "展示" : "不展示");
         Log.e("DisplayUtil", "高度:" + getVirtualBarHeigh(this));
-
     }
 
     /**

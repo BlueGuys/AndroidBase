@@ -3,7 +3,6 @@ package com.hongyan.wdcf.base;
 
 import com.hongyan.base.router.RouterConst;
 import com.hongyan.wdcf.business.account.feedback.DeviceInfoActivity;
-import com.hongyan.wdcf.business.account.share.UserShareActivity;
 import com.hongyan.wdcf.business.test.asynctask.AsyncTaskTestActivity;
 import com.hongyan.wdcf.business.test.device.DeviceTestActivity;
 
@@ -28,7 +27,6 @@ public final class RouterConfig {
 
     void init() {
         RouterConst.addRouter(UserUserFeedback, DeviceInfoActivity.class.getName());
-        RouterConst.addRouter(UserShare, UserShareActivity.class.getName());
         RouterConst.addRouter(UserActivityPDF, PDFViewActivity.class.getName());
         RouterConst.addRouter(TestAsyncTask, AsyncTaskTestActivity.class.getName());
         RouterConst.addRouter(TestDevice, DeviceTestActivity.class.getName());

@@ -20,7 +20,7 @@ public class FeedbackHolder extends BaseViewHolder implements IViewHolder {
 
     @Override
     public int getLayoutID() {
-        return R.layout.activity_feedback;
+        return R.layout.activity_device_info;
     }
 
     @Override

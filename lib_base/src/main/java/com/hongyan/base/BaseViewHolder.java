@@ -5,7 +5,6 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import com.hongyan.lib_base.R;
-import com.hongyan.smartrefresh.layout.SmartRefreshLayout;
 
 /**
  * Created by wangning on 2018/6/10.
@@ -20,7 +19,6 @@ public class BaseViewHolder {
     protected NavigationView navigationView;
     private LinearLayout contentLayout;
     private LinearLayout businessLayout;
-    private SmartRefreshLayout smartRefreshLayout;
     protected ListView listView;
     private View netErrorLayout;
 

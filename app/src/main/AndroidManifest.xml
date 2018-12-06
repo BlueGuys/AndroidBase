@@ -22,9 +22,6 @@
         <activity
             android:name=".business.main.MainActivity"
             android:launchMode="singleTask">
-
-        </activity>
-        <activity android:name=".business.splash.AppStartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -34,26 +31,7 @@
         <activity
             android:name="com.hongyan.TestActivity"
             android:launchMode="singleTask" />
-
         <activity android:name=".business.account.feedback.DeviceInfoActivity" />
-        <activity android:name=".business.account.share.UserShareActivity" />
-        <activity
-            android:name="com.tencent.tauth.AuthActivity"
-            android:launchMode="singleTask"
-            android:noHistory="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-
-                <data android:scheme="tencent1107393925" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="com.tencent.connect.common.AssistActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:configChanges="orientation|keyboardHidden|screenSize"/>
         <activity android:name=".base.PDFActivity" />
         <activity android:name=".base.PDFViewActivity" />
         <activity android:name=".business.test.asynctask.AsyncTaskTestActivity" />

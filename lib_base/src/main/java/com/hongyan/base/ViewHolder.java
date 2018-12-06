@@ -1,6 +1,5 @@
 package com.hongyan.base;
 
-import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -9,9 +8,6 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.hongyan.lib_base.R;
-import com.hongyan.smartrefresh.layout.SmartRefreshLayout;
-import com.hongyan.smartrefresh.layout.api.RefreshLayout;
-import com.hongyan.smartrefresh.layout.listener.OnRefreshListener;
 
 /**
  * Created by wangning on 2018/6/10.
@@ -26,7 +22,6 @@ class ViewHolder {
 
     private View rootView;
     private LinearLayout contentLayout;
-    private SmartRefreshLayout smartRefreshLayout;
     private View netErrorLayout;
 
     ViewHolder(BaseActivity baseActivity, BaseViewHolder businessViewHolder) {
@@ -61,13 +56,6 @@ class ViewHolder {
 
         contentLayout = rootView.findViewById(R.id.contentLayout);
         netErrorLayout = rootView.findViewById(R.id.netErrorLayout);
-        smartRefreshLayout = rootView.findViewById(R.id.refreshLayout);
-        smartRefreshLayout.setOnRefreshListener(new OnRefreshListener() {
-            @Override
-            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
-                requestPageData(true);
-            }
-        });
 
         //初始化networkErrorLayout
         netErrorLayout.setOnTouchListener(new View.OnTouchListener() {
@@ -81,9 +69,6 @@ class ViewHolder {
         if (iViewHolder.getLayoutType() == IViewHolder.LAYOUT_TYPE_COMMON) {
             initLayoutCommon();
         }
-
-        smartRefreshLayout.setEnableLoadMore(businessViewHolder.enableLoadMore());
-        smartRefreshLayout.setEnableRefresh(businessViewHolder.enablePullRefresh());
 
         showBusinessLayout();
     }
@@ -120,7 +105,6 @@ class ViewHolder {
             public <T extends BaseResult> void onResponse(T result) {
                 baseActivity.cancelLoading();
                 if (isPullRefresh) {
-                    smartRefreshLayout.finishRefresh();
                 }
                 iViewHolder.onRequestSuccess(result);
                 showBusinessLayout();
@@ -130,7 +114,6 @@ class ViewHolder {
             public void onError(BaseResult.Error error) {
                 baseActivity.cancelLoading();
                 if (isPullRefresh) {
-                    smartRefreshLayout.finishRefresh();
                 }
                 if (iViewHolder.onRequestFail()) {
                     //子类实现
