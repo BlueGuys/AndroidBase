@@ -2,7 +2,7 @@ package com.hongyan.wdcf.base;
 
 
 import com.hongyan.base.router.RouterConst;
-import com.hongyan.wdcf.business.account.feedback.DeviceInfoActivity;
+import com.hongyan.wdcf.device.DeviceInfoActivity;
 import com.hongyan.wdcf.business.test.asynctask.AsyncTaskTestActivity;
 import com.hongyan.wdcf.business.test.device.DeviceTestActivity;
 

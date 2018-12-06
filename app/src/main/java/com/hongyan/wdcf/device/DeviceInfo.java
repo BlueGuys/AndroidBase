@@ -1,4 +1,4 @@
-package com.hongyan.wdcf.business.account.feedback;
+package com.hongyan.wdcf.device;
 
 public class DeviceInfo {
 

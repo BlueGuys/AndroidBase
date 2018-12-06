@@ -31,7 +31,7 @@
         <activity
             android:name="com.hongyan.TestActivity"
             android:launchMode="singleTask" />
-        <activity android:name=".business.account.feedback.DeviceInfoActivity" />
+        <activity android:name=".device.DeviceInfoActivity" />
         <activity android:name=".base.PDFActivity" />
         <activity android:name=".base.PDFViewActivity" />
         <activity android:name=".business.test.asynctask.AsyncTaskTestActivity" />

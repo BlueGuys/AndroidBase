@@ -1,4 +1,4 @@
-package com.hongyan.wdcf.business.account.feedback;
+package com.hongyan.wdcf.device;
 
 import android.content.Context;
 import android.support.annotation.Nullable;

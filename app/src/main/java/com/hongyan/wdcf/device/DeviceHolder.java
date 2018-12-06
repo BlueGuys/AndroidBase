@@ -1,7 +1,6 @@
-package com.hongyan.wdcf.business.account.feedback;
+package com.hongyan.wdcf.device;
 
 import android.view.View;
-import android.widget.Button;
 
 import com.hongyan.base.BaseActivity;
 import com.hongyan.base.BaseResult;
