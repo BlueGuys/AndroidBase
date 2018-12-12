@@ -10,11 +10,6 @@ public class Mp3TestActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(new Mp3TestHolder(this).getLayoutId());
     }
-
-    @Override
-    protected BaseViewHolder getViewHolder() {
-        return new Mp3TestHolder(this);
-    }
-
 }

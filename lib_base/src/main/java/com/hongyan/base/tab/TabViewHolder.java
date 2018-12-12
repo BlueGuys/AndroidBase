@@ -10,18 +10,13 @@ import com.hongyan.base.BaseActivity;
 import com.hongyan.base.BaseFragment;
 import com.hongyan.base.BaseResult;
 import com.hongyan.base.BaseViewHolder;
-import com.hongyan.base.IViewHolder;
 import com.hongyan.base.RequestBean;
 import com.hongyan.lib_base.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by wangning on 2018/6/20.
- */
-
-public class TabViewHolder extends BaseViewHolder implements IViewHolder {
+public class TabViewHolder extends BaseViewHolder{
 
     private List<SubPage> mPageList = new ArrayList<>();
     private List<BaseFragment> mFragmentList = new ArrayList<>();
@@ -34,22 +29,12 @@ public class TabViewHolder extends BaseViewHolder implements IViewHolder {
     }
 
     @Override
-    public int getLayoutID() {
+    public int getLayoutId() {
         return R.layout.activity_base_tab;
     }
 
     @Override
-    public int getLayoutType() {
-        return IViewHolder.LAYOUT_TYPE_COMMON;
-    }
-
-    @Override
-    public boolean needPageRequest() {
-        return false;
-    }
-
-    @Override
-    public void initView(View rootView) {
+    public void initView() {
         mViewPager = rootView.findViewById(R.id.vp_content);
         tabContainer = rootView.findViewById(R.id.tabContainer);
         initContent();
@@ -86,29 +71,10 @@ public class TabViewHolder extends BaseViewHolder implements IViewHolder {
         });
     }
 
-    @Override
-    public int getNavigationTitle() {
-        return 0;
-    }
-
-    @Override
-    public RequestBean getRequestBean() {
-        return null;
-    }
-
-    @Override
-    public <T extends BaseResult> void onRequestSuccess(T result) {
-
-    }
-
     protected void selectPage(int position){
         mViewPager.setCurrentItem(position);
     }
 
-    @Override
-    public boolean onRequestFail() {
-        return false;
-    }
 
     public void addSubPage(ArrayList<SubPage> list) {
         if (list == null) {

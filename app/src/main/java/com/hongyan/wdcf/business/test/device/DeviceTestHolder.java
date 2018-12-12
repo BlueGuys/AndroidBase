@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.support.v4.app.ActivityCompat;
 import android.telephony.TelephonyManager;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -13,7 +12,6 @@ import android.widget.TextView;
 import com.hongyan.base.BaseActivity;
 import com.hongyan.base.BaseResult;
 import com.hongyan.base.BaseViewHolder;
-import com.hongyan.base.IViewHolder;
 import com.hongyan.base.RequestBean;
 import com.hongyan.wdcf.R;
 import com.lahm.library.EasyProtectorLib;
@@ -22,7 +20,7 @@ import com.lahm.library.EasyProtectorLib;
  * Created by wangning on 2018/6/10.
  */
 
-public class DeviceTestHolder extends BaseViewHolder implements IViewHolder {
+public class DeviceTestHolder extends BaseViewHolder {
 
     private TextView textView;
     private Button button;
@@ -32,22 +30,12 @@ public class DeviceTestHolder extends BaseViewHolder implements IViewHolder {
     }
 
     @Override
-    public int getLayoutID() {
+    public int getLayoutId() {
         return R.layout.activity_device_test;
     }
 
     @Override
-    public int getLayoutType() {
-        return IViewHolder.LAYOUT_TYPE_COMMON;
-    }
-
-    @Override
-    public boolean needPageRequest() {
-        return false;
-    }
-
-    @Override
-    public void initView(View rootView) {
+    public void initView() {
         textView = rootView.findViewById(R.id.textView);
         button = rootView.findViewById(R.id.btn_start);
         button.setOnClickListener(new View.OnClickListener() {
@@ -56,26 +44,6 @@ public class DeviceTestHolder extends BaseViewHolder implements IViewHolder {
                 textView.setText(EasyProtectorLib.checkIsRunningInEmulator() ? "yes" : "no");
             }
         });
-    }
-
-    @Override
-    public int getNavigationTitle() {
-        return 0;
-    }
-
-    @Override
-    public RequestBean getRequestBean() {
-        return null;
-    }
-
-    @Override
-    public <T extends BaseResult> void onRequestSuccess(T result) {
-
-    }
-
-    @Override
-    public boolean onRequestFail() {
-        return false;
     }
 
     public void getTelephonyInfo(Context context) {

@@ -110,11 +110,6 @@ public class BaseWebViewActivity extends BaseActivity {
     }
 
     @Override
-    protected BaseViewHolder getViewHolder() {
-        return null;
-    }
-
-    @Override
     protected void onPause() {
         super.onPause();
     }

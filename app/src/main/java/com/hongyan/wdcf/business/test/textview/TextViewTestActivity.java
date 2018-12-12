@@ -14,11 +14,6 @@ public class TextViewTestActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(new TextViewTestHolder(this).getLayoutId());
     }
-
-    @Override
-    protected BaseViewHolder getViewHolder() {
-        return new TextViewTestHolder(this);
-    }
-
 }

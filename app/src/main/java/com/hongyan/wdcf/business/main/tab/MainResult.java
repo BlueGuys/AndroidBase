@@ -1,4 +1,4 @@
-package com.hongyan.wdcf.business.main;
+package com.hongyan.wdcf.business.main.tab;
 
 import com.hongyan.base.BaseResult;
 

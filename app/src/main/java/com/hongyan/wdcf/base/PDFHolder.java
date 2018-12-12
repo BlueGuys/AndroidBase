@@ -1,8 +1,5 @@
 package com.hongyan.wdcf.base;
 
-import android.app.DownloadManager;
-import android.content.Context;
-import android.net.Uri;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
@@ -13,7 +10,6 @@ import com.hongyan.StringUtils;
 import com.hongyan.base.BaseActivity;
 import com.hongyan.base.BaseResult;
 import com.hongyan.base.BaseViewHolder;
-import com.hongyan.base.IViewHolder;
 import com.hongyan.base.RequestBean;
 import com.hongyan.wdcf.R;
 import com.joanzapata.pdfview.PDFView;
@@ -25,7 +21,7 @@ import java.io.File;
  * Created by wangning on 2018/6/10.
  */
 
-public class PDFHolder extends BaseViewHolder implements IViewHolder, OnPageChangeListener {
+public class PDFHolder extends BaseViewHolder implements OnPageChangeListener {
 
     private PDFView pdfView;
     private String mUrl;
@@ -58,22 +54,12 @@ public class PDFHolder extends BaseViewHolder implements IViewHolder, OnPageChan
     }
 
     @Override
-    public int getLayoutID() {
+    public int getLayoutId() {
         return R.layout.activity_pdf;
     }
 
     @Override
-    public int getLayoutType() {
-        return IViewHolder.LAYOUT_TYPE_COMMON;
-    }
-
-    @Override
-    public boolean needPageRequest() {
-        return false;
-    }
-
-    @Override
-    public void initView(View rootView) {
+    public void initView() {
         pdfView = rootView.findViewById(R.id.pdfview);
         startLoading();
         DownloadUtil.get().download(mUrl, "/wdcf", new DownloadUtil.OnDownloadListener() {
@@ -98,27 +84,6 @@ public class PDFHolder extends BaseViewHolder implements IViewHolder, OnPageChan
     @Override
     protected boolean hideNavigationView() {
         return true;
-    }
-
-    @Override
-    public int getNavigationTitle() {
-        return 0;
-    }
-
-
-    @Override
-    public RequestBean getRequestBean() {
-        return null;
-    }
-
-    @Override
-    public <T extends BaseResult> void onRequestSuccess(T result) {
-
-    }
-
-    @Override
-    public boolean onRequestFail() {
-        return false;
     }
 
     @Override

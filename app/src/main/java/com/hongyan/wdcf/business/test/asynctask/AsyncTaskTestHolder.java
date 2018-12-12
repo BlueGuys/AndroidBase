@@ -6,21 +6,14 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 
 import com.hongyan.base.BaseActivity;
-import com.hongyan.base.BaseResult;
 import com.hongyan.base.BaseViewHolder;
-import com.hongyan.base.IViewHolder;
-import com.hongyan.base.RequestBean;
 import com.hongyan.wdcf.R;
 
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Field;
 import java.util.concurrent.Executor;
 
-/**
- * Created by wangning on 2018/6/10.
- */
-
-public class AsyncTaskTestHolder extends BaseViewHolder implements IViewHolder {
+public class AsyncTaskTestHolder extends BaseViewHolder {
 
     ProgressBar progressBar1;
     private DownloadAsyncTask1 mTask1;
@@ -33,22 +26,12 @@ public class AsyncTaskTestHolder extends BaseViewHolder implements IViewHolder {
     }
 
     @Override
-    public int getLayoutID() {
-        return R.layout.activity_async_test;
+    protected int getLayoutId() {
+        return R.layout.activity_device_info;
     }
 
     @Override
-    public int getLayoutType() {
-        return IViewHolder.LAYOUT_TYPE_COMMON;
-    }
-
-    @Override
-    public boolean needPageRequest() {
-        return false;
-    }
-
-    @Override
-    public void initView(View rootView) {
+    public void initView() {
         Button buttonStart1 = rootView.findViewById(R.id.btn_start1);
         Button buttonCancel1 = rootView.findViewById(R.id.btn_cancel1);
         progressBar1 = rootView.findViewById(R.id.progressBar1);
@@ -241,27 +224,6 @@ public class AsyncTaskTestHolder extends BaseViewHolder implements IViewHolder {
     @Override
     protected boolean hideNavigationView() {
         return true;
-    }
-
-    @Override
-    public int getNavigationTitle() {
-        return 0;
-    }
-
-
-    @Override
-    public RequestBean getRequestBean() {
-        return null;
-    }
-
-    @Override
-    public <T extends BaseResult> void onRequestSuccess(T result) {
-
-    }
-
-    @Override
-    public boolean onRequestFail() {
-        return false;
     }
 
     private String getTaskQueueID() {

@@ -8,7 +8,6 @@ import android.widget.ProgressBar;
 import com.hongyan.base.BaseActivity;
 import com.hongyan.base.BaseResult;
 import com.hongyan.base.BaseViewHolder;
-import com.hongyan.base.IViewHolder;
 import com.hongyan.base.RequestBean;
 import com.hongyan.wdcf.R;
 
@@ -20,7 +19,7 @@ import java.util.concurrent.Executor;
  * Created by wangning on 2018/6/10.
  */
 
-public class Mp3TestHolder extends BaseViewHolder implements IViewHolder {
+public class Mp3TestHolder extends BaseViewHolder {
 
     ProgressBar progressBar1;
     private DownloadAsyncTask mTask1;
@@ -31,22 +30,12 @@ public class Mp3TestHolder extends BaseViewHolder implements IViewHolder {
     }
 
     @Override
-    public int getLayoutID() {
+    public int getLayoutId() {
         return R.layout.activity_async_test;
     }
 
     @Override
-    public int getLayoutType() {
-        return IViewHolder.LAYOUT_TYPE_COMMON;
-    }
-
-    @Override
-    public boolean needPageRequest() {
-        return false;
-    }
-
-    @Override
-    public void initView(View rootView) {
+    public void initView() {
         Button buttonStart1 = rootView.findViewById(R.id.btn_start);
         progressBar1 = rootView.findViewById(R.id.progressBar1);
         buttonStart1.setOnClickListener(new View.OnClickListener() {
@@ -133,27 +122,6 @@ public class Mp3TestHolder extends BaseViewHolder implements IViewHolder {
     @Override
     protected boolean hideNavigationView() {
         return true;
-    }
-
-    @Override
-    public int getNavigationTitle() {
-        return 0;
-    }
-
-
-    @Override
-    public RequestBean getRequestBean() {
-        return null;
-    }
-
-    @Override
-    public <T extends BaseResult> void onRequestSuccess(T result) {
-
-    }
-
-    @Override
-    public boolean onRequestFail() {
-        return false;
     }
 
     private String getTaskQueueID() {

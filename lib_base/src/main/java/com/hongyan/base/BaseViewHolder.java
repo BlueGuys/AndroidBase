@@ -1,29 +1,33 @@
 package com.hongyan.base;
 
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import com.hongyan.lib_base.R;
 
-/**
- * Created by wangning on 2018/6/10.
- */
-
-public class BaseViewHolder {
+public abstract class BaseViewHolder {
 
     protected BaseActivity mActivity;
-    private IViewHolder iViewHolder;
 
-    private View rootView;
+    protected View rootView;
     protected NavigationView navigationView;
     private LinearLayout contentLayout;
     private LinearLayout businessLayout;
     protected ListView listView;
     private View netErrorLayout;
 
-    public BaseViewHolder(BaseActivity mActivity) {
-        this.mActivity = mActivity;
+    public BaseViewHolder(BaseActivity activity) {
+        this.mActivity = activity;
+        rootView = LayoutInflater.from(activity).inflate(getLayoutId(), null, false);
+        initView();
+    }
+
+    protected abstract int getLayoutId();
+
+    protected void initView() {
+
     }
 
     private void showBusinessLayout() {
@@ -93,7 +97,7 @@ public class BaseViewHolder {
         mActivity.startLoading();
     }
 
-    public void goBack(){
+    public void goBack() {
         mActivity.finish();
     }
 

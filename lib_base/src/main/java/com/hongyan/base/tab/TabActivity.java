@@ -19,12 +19,9 @@ public class TabActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-    }
-
-    @Override
-    protected BaseViewHolder getViewHolder() {
         viewHolder = new TabViewHolder(this);
-        return viewHolder;
+        setContentView(viewHolder.getLayoutId());
+        viewHolder.initView();
     }
 
     public void addSubPage(ArrayList<SubPage> list) {

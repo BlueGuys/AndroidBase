@@ -6,12 +6,15 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
-import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.hongyan.LogUtils;
+import com.hongyan.lib_base.R;
 import com.hongyan.loading.LoadingDialog;
 
 /**
@@ -20,23 +23,30 @@ import com.hongyan.loading.LoadingDialog;
 public abstract class BaseActivity extends FragmentActivity {
 
     private LoadingDialog dialog;
-    private ViewHolder viewHolder;
+    private View rootView;
+    private LinearLayout contentLayout;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);//限制为竖屏
-        LogUtils.w("BaseActivity", getClass().getSimpleName());
         init();
-        BaseViewHolder baseViewHolder = getViewHolder();
-        if (baseViewHolder != null) {
-            viewHolder = new ViewHolder(this, getViewHolder());
-            setContentView(viewHolder.getRootView());
-        }
+        rootView = LayoutInflater.from(this).inflate(R.layout.activity_base_common, null, false);
+        contentLayout = rootView.findViewById(R.id.contentLayout);
     }
 
-    public void startRequestPageData() {
-        viewHolder.requestPageData(false);
+    @Override
+    public void setContentView(int layoutResID) {
+        super.setContentView(layoutResID);
+        View businessView = LayoutInflater.from(this).inflate(layoutResID, null, false);
+        contentLayout.addView(businessView, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        super.setContentView(rootView, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+    }
+
+    @Override
+    public void setContentView(View view) {
+        contentLayout.addView(view, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        super.setContentView(rootView, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
     }
 
     @Override
@@ -45,10 +55,9 @@ public abstract class BaseActivity extends FragmentActivity {
     }
 
     public void init() {
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);//限制为竖屏
         configTranslucentStatuBar();
     }
-
-    protected abstract BaseViewHolder getViewHolder();
 
     protected String getParam(String key) {
         Intent intent = getIntent();
