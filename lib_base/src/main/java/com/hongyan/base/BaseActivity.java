@@ -23,30 +23,30 @@ import com.hongyan.loading.LoadingDialog;
 public abstract class BaseActivity extends FragmentActivity {
 
     private LoadingDialog dialog;
-    private View rootView;
-    private LinearLayout contentLayout;
-
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         init();
-        rootView = LayoutInflater.from(this).inflate(R.layout.activity_base_common, null, false);
-        contentLayout = rootView.findViewById(R.id.contentLayout);
+
     }
 
     @Override
     public void setContentView(int layoutResID) {
         super.setContentView(layoutResID);
+        View rootView = LayoutInflater.from(this).inflate(R.layout.activity_base_common, null, false);
+        LinearLayout contentLayout = rootView.findViewById(R.id.contentLayout);
         View businessView = LayoutInflater.from(this).inflate(layoutResID, null, false);
         contentLayout.addView(businessView, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-        super.setContentView(rootView, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        super.setContentView(rootView);
     }
 
     @Override
     public void setContentView(View view) {
+        View rootView = LayoutInflater.from(this).inflate(R.layout.activity_base_common, null, false);
+        LinearLayout contentLayout = rootView.findViewById(R.id.contentLayout);
         contentLayout.addView(view, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-        super.setContentView(rootView, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        super.setContentView(rootView);
     }
 
     @Override
