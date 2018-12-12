@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -17,11 +16,11 @@ public class WebViewProgressView extends View {
         this(context, null);
     }
 
-    public WebViewProgressView(Context context, @Nullable AttributeSet attrs) {
+    public WebViewProgressView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public WebViewProgressView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public WebViewProgressView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
     }

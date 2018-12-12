@@ -12,8 +12,6 @@ import com.hongyan.wdcf.base.RouterConfig;
 import com.hongyan.wdcf.base.WDNetworkCall;
 import com.hongyan.wdcf.config.UrlConst;
 
-import org.greenrobot.eventbus.EventBus;
-
 public class AccountManager {
 
     private static volatile AccountManager instance;
@@ -45,10 +43,8 @@ public class AccountManager {
     public void logout() {
         SharePreferenceManager.getInstance().deleteStr("account");
         SharePreferenceManager.getInstance().deleteStr("token");
-        EventBus.getDefault().post(new AccountMessageEvent(false));
         this.mAccountInfo = null;
         this.token = "";
-        EventBus.getDefault().post(new MainMessageEvent(0));
     }
 
     public void setToken(String token) {
@@ -118,7 +114,6 @@ public class AccountManager {
                     mAccountInfo.setReview(data.review);
                     mAccountInfo.setAuth_status(data.auth_status);
                     saveAccountInfo(GsonUtils.toJson(mAccountInfo));
-                    EventBus.getDefault().post(new AccountMessageEvent(true));
                 }
             }
 

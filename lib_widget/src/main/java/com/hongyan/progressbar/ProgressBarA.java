@@ -8,7 +8,6 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -51,7 +50,7 @@ public class ProgressBarA extends View {
         super(context);
     }
 
-    public ProgressBarA(Context context, @Nullable AttributeSet attrs) {
+    public ProgressBarA(Context context, AttributeSet attrs) {
         super(context, attrs);
         paint = new Paint();
         Timer timer = new Timer();

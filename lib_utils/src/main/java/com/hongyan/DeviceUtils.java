@@ -6,10 +6,12 @@ import android.content.SharedPreferences;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.preference.PreferenceManager;
-import android.support.v4.BuildConfig;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
+
+import com.hongyan.lib_utils.BuildConfig;
+
 import java.util.UUID;
 
 /**

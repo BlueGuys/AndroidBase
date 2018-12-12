@@ -33,11 +33,13 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.Signature;
 import android.net.Uri;
 import android.os.Build;
-import android.support.v4.BuildConfig;
 import android.support.v4.app.ActivityCompat;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
+
+import com.hongyan.lib_utils.BuildConfig;
+
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileFilter;
