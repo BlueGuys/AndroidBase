@@ -9,7 +9,7 @@ android {
             storePassword '123456'
         }
     }
-    compileSdkVersion 26
+    compileSdkVersion 28
     defaultConfig {
         applicationId "com.hongyan.wdcf"
         minSdkVersion 16
@@ -28,6 +28,7 @@ android {
             signingConfig signingConfigs.release
         }
     }
+    buildToolsVersion '28.0.0'
 }
 
 dependencies {
