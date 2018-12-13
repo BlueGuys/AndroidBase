@@ -1,0 +1,19 @@
+{
+	"pageList": [{
+		"id": "001",
+		"name": "com.hongyan.wdcf.business.textview.TextViewTestActivity",
+		"desc": "TextView测试"
+	}, {
+		"id": "002",
+		"name": "com.hongyan.wdcf.business.device.DeviceInfoActivity",
+		"desc": "UI测试"
+	}, {
+		"id": "002",
+		"name": "com.hongyan.wdcf.business.pdf.PDFViewActivity",
+		"desc": "PDF测试"
+	}, {
+		"id": "002",
+		"name": "com.hongyan.wdcf.business.asynctask.AsyncTaskTestActivity",
+		"desc": "AsyncTask测试"
+	}]
+}

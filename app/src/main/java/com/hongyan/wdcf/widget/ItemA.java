@@ -25,7 +25,7 @@ public class ItemA extends LinearLayout {
 
 
     public ItemA(Context context) {
-        super(context);
+        this(context, null);
     }
 
     public ItemA(Context context, @Nullable AttributeSet attrs) {
@@ -37,11 +37,17 @@ public class ItemA extends LinearLayout {
     private void initView(Context context, AttributeSet attrs) {
         tvTitle = view.findViewById(R.id.tv_title);
         tvDesc = view.findViewById(R.id.tv_desc);
-        @SuppressLint("Recycle") TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.ItemA);
-        String title = ta.getString(R.styleable.ItemA_title);
-        String desc = ta.getString(R.styleable.ItemA_desc);
-        tvTitle.setText(title);
-        tvDesc.setText(desc);
+        if (attrs != null) {
+            @SuppressLint("Recycle") TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.ItemA);
+            String title = ta.getString(R.styleable.ItemA_title);
+            String desc = ta.getString(R.styleable.ItemA_desc);
+            if (title != null) {
+                tvTitle.setText(title);
+            }
+            if (desc != null) {
+                tvDesc.setText(desc);
+            }
+        }
     }
 
     public void setTitle(String title) {

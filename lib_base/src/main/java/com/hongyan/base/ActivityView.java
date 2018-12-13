@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 public abstract class ActivityView extends LinearLayout {
 
-    private Context mContext;
+    protected Context mContext;
     protected View rootView;
 
     public ActivityView(Context context) {

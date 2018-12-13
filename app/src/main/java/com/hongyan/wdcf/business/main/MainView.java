@@ -1,48 +1,74 @@
 package com.hongyan.wdcf.business.main;
 
 import android.content.Context;
-import android.view.View;
+import android.widget.ListView;
 
 import com.hongyan.base.ActivityView;
-import com.hongyan.base.router.Router;
-import com.hongyan.base.router.RouterManager;
+import com.hongyan.base.PageInfo;
 import com.hongyan.wdcf.R;
-import com.hongyan.wdcf.base.RouterConfig;
-import com.hongyan.wdcf.widget.ItemA;
 
-public class MainView extends ActivityView implements View.OnClickListener {
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+
+public class MainView extends ActivityView {
+
+    private ListView listView;
+    private MainAdapter adapter;
 
     public MainView(Context context) {
         super(context);
         addBusinessView(R.layout.activity_main);
         initView();
+        initData();
     }
 
     protected void initView() {
         if (rootView == null) {
             return;
         }
-        ItemA item01 = rootView.findViewById(R.id.item_01);
-        ItemA item02 = rootView.findViewById(R.id.item_02);
-        ItemA item03 = rootView.findViewById(R.id.item_03);
-        item01.setOnClickListener(this);
-        item02.setOnClickListener(this);
-        item03.setOnClickListener(this);
+        listView = findViewById(R.id.listView);
+        adapter = new MainAdapter(mContext);
+        listView.setAdapter(adapter);
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.item_01:
-                RouterManager.getInstance().openUrl(new Router(RouterConfig.TestAsyncTask));
-                break;
-            case R.id.item_02:
-                RouterManager.getInstance().openUrl(new Router(RouterConfig.UserUserFeedback));
-                break;
-            case R.id.item_03:
-                RouterManager.getInstance().openUrl(new Router(RouterConfig.TestTextView));
-                break;
+    private void initData() {
+        StringBuilder builder = new StringBuilder();
+        try {
+            InputStreamReader inputStreamReader = new InputStreamReader(mContext.getResources().getAssets().open("pageList"));
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                builder.append(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+        String pageListStr = builder.toString();
+        ArrayList<PageInfo> pageInfoArrayList = new ArrayList<>();
+        try {
+            JSONObject data = new JSONObject(pageListStr);
+            JSONArray pageList = data.getJSONArray("pageList");
+            if (pageList != null && pageList.length() > 0) {
+                for (int i = 0; i < pageList.length(); i++) {
+                    JSONObject page = pageList.getJSONObject(i);
+                    PageInfo pageInfo = new PageInfo();
+                    pageInfo.pageId = page.optString("id");
+                    pageInfo.pageName = page.optString("name");
+                    pageInfo.pageDesc = page.optString("desc");
+                    pageInfoArrayList.add(pageInfo);
+                }
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        adapter.setData(pageInfoArrayList);
+        adapter.notifyDataSetChanged();
     }
 
 }
