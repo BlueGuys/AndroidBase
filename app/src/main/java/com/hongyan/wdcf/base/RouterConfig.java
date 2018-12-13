@@ -6,7 +6,6 @@ import com.hongyan.wdcf.business.pdf.PDFViewActivity;
 import com.hongyan.wdcf.business.textview.TextViewTestActivity;
 import com.hongyan.wdcf.business.device.DeviceInfoActivity;
 import com.hongyan.wdcf.business.asynctask.AsyncTaskTestActivity;
-import com.hongyan.wdcf.business.device.DeviceTestActivity;
 
 public final class RouterConfig {
 
@@ -31,7 +30,6 @@ public final class RouterConfig {
         RouterConst.addRouter(UserUserFeedback, DeviceInfoActivity.class.getName());
         RouterConst.addRouter(UserActivityPDF, PDFViewActivity.class.getName());
         RouterConst.addRouter(TestAsyncTask, AsyncTaskTestActivity.class.getName());
-        RouterConst.addRouter(TestDevice, DeviceTestActivity.class.getName());
         RouterConst.addRouter(TestTextView, TextViewTestActivity.class.getName());
     }
 
@@ -73,11 +71,6 @@ public final class RouterConfig {
      * AsyncTask
      */
     public static final String TestAsyncTask = "native://test/activity/async";
-
-    /**
-     * DeviceTest
-     */
-    public static final String TestDevice = "native://test/activity/device";
 
     /**
      * DeviceTest

@@ -5,7 +5,7 @@
     android:background="@color/appBackground"
     android:orientation="vertical">
 
-    <com.hongyan.wdcf.business.device.DeviceInfoView
+    <com.hongyan.wdcf.business.device.DeviceDataView
         android:id="@+id/view_device_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

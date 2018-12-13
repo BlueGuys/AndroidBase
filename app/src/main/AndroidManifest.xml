@@ -31,8 +31,6 @@
         <activity android:name=".business.device.DeviceInfoActivity" />
         <activity android:name=".business.pdf.PDFViewActivity" />
         <activity android:name=".business.asynctask.AsyncTaskTestActivity" />
-        <activity android:name=".business.device.DeviceTestActivity" />
-        <activity android:name=".business.mp3.Mp3TestActivity" />
         <activity android:name=".business.textview.TextViewTestActivity" />
         <activity android:name=".business.webview.BaseWebViewActivity" />
     </application>

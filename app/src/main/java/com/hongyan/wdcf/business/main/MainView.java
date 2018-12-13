@@ -25,11 +25,9 @@ public class MainView extends ActivityView implements View.OnClickListener {
         ItemA item01 = rootView.findViewById(R.id.item_01);
         ItemA item02 = rootView.findViewById(R.id.item_02);
         ItemA item03 = rootView.findViewById(R.id.item_03);
-        ItemA item04 = rootView.findViewById(R.id.item_04);
         item01.setOnClickListener(this);
         item02.setOnClickListener(this);
         item03.setOnClickListener(this);
-        item04.setOnClickListener(this);
     }
 
     @Override
@@ -39,12 +37,9 @@ public class MainView extends ActivityView implements View.OnClickListener {
                 RouterManager.getInstance().openUrl(new Router(RouterConfig.TestAsyncTask));
                 break;
             case R.id.item_02:
-                RouterManager.getInstance().openUrl(new Router(RouterConfig.TestDevice));
-                break;
-            case R.id.item_03:
                 RouterManager.getInstance().openUrl(new Router(RouterConfig.UserUserFeedback));
                 break;
-            case R.id.item_04:
+            case R.id.item_03:
                 RouterManager.getInstance().openUrl(new Router(RouterConfig.TestTextView));
                 break;
         }

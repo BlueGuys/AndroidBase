@@ -1,19 +1,23 @@
 package com.hongyan.wdcf.business.asynctask;
 
+import android.content.Context;
 import android.os.AsyncTask;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 
-import com.hongyan.base.BaseActivity;
-import com.hongyan.base.BaseViewHolder;
+import com.hongyan.base.ActivityView;
+import com.hongyan.base.router.Router;
+import com.hongyan.base.router.RouterManager;
 import com.hongyan.wdcf.R;
+import com.hongyan.wdcf.base.RouterConfig;
+import com.hongyan.wdcf.widget.ItemA;
 
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Field;
 import java.util.concurrent.Executor;
 
-public class AsyncTaskTestHolder extends BaseViewHolder {
+public class AsyncTaskView extends ActivityView {
 
     ProgressBar progressBar1;
     private DownloadAsyncTask1 mTask1;
@@ -21,17 +25,13 @@ public class AsyncTaskTestHolder extends BaseViewHolder {
     ProgressBar progressBar2;
     private DownloadAsyncTask2 mTask2;
 
-    public AsyncTaskTestHolder(BaseActivity mActivity) {
-        super(mActivity);
+    public AsyncTaskView(Context context) {
+        super(context);
+        addBusinessView(R.layout.activity_async_test);
+        initView();
     }
 
-    @Override
-    protected int getLayoutId() {
-        return R.layout.activity_device_info;
-    }
-
-    @Override
-    public void initView() {
+    protected void initView() {
         Button buttonStart1 = rootView.findViewById(R.id.btn_start1);
         Button buttonCancel1 = rootView.findViewById(R.id.btn_cancel1);
         progressBar1 = rootView.findViewById(R.id.progressBar1);
@@ -43,9 +43,8 @@ public class AsyncTaskTestHolder extends BaseViewHolder {
                     mTask1 = null;
                 }
                 getTaskQueueID();
-                mTask1 = new DownloadAsyncTask1(AsyncTaskTestHolder.this);
+                mTask1 = new DownloadAsyncTask1(AsyncTaskView.this);
                 mTask1.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-                mTask1.execute();
             }
         });
         buttonCancel1.setOnClickListener(new View.OnClickListener() {
@@ -69,9 +68,8 @@ public class AsyncTaskTestHolder extends BaseViewHolder {
                     mTask2 = null;
                 }
                 getTaskQueueID();
-                mTask2 = new DownloadAsyncTask2(AsyncTaskTestHolder.this);
+                mTask2 = new DownloadAsyncTask2(AsyncTaskView.this);
                 mTask2.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-                mTask2.execute();
             }
         });
         buttonCancel2.setOnClickListener(new View.OnClickListener() {
@@ -90,9 +88,9 @@ public class AsyncTaskTestHolder extends BaseViewHolder {
      */
     private static class DownloadAsyncTask1 extends AsyncTask<String, Integer, String> {
 
-        WeakReference<AsyncTaskTestHolder> holder;
+        WeakReference<AsyncTaskView> holder;
 
-        DownloadAsyncTask1(AsyncTaskTestHolder holder) {
+        DownloadAsyncTask1(AsyncTaskView holder) {
             this.holder = new WeakReference<>(holder);
         }
 
@@ -131,7 +129,7 @@ public class AsyncTaskTestHolder extends BaseViewHolder {
         @Override
         protected void onProgressUpdate(Integer... values) {
             super.onProgressUpdate(values);
-            AsyncTaskTestHolder mHolder = holder.get();
+            AsyncTaskView mHolder = holder.get();
             if (mHolder != null) {
                 mHolder.progressBar1.setProgress(values[0]);
             }
@@ -158,9 +156,9 @@ public class AsyncTaskTestHolder extends BaseViewHolder {
      */
     private static class DownloadAsyncTask2 extends AsyncTask<String, Integer, String> {
 
-        WeakReference<AsyncTaskTestHolder> holder;
+        WeakReference<AsyncTaskView> holder;
 
-        DownloadAsyncTask2(AsyncTaskTestHolder holder) {
+        DownloadAsyncTask2(AsyncTaskView holder) {
             this.holder = new WeakReference<>(holder);
         }
 
@@ -199,7 +197,7 @@ public class AsyncTaskTestHolder extends BaseViewHolder {
         @Override
         protected void onProgressUpdate(Integer... values) {
             super.onProgressUpdate(values);
-            AsyncTaskTestHolder mHolder = holder.get();
+            AsyncTaskView mHolder = holder.get();
             if (mHolder != null) {
                 mHolder.progressBar2.setProgress(values[0]);
             }
@@ -221,18 +219,12 @@ public class AsyncTaskTestHolder extends BaseViewHolder {
         }
     }
 
-    @Override
-    protected boolean hideNavigationView() {
-        return true;
-    }
-
     private String getTaskQueueID() {
         try {
             Class c = Class.forName("android.os.AsyncTask");
             Field field = c.getDeclaredField("SERIAL_EXECUTOR");
             field.setAccessible(true);
             Executor executor = (Executor) field.get(null);
-            showErrorToast(executor.toString());
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (NoSuchFieldException e) {
@@ -242,5 +234,6 @@ public class AsyncTaskTestHolder extends BaseViewHolder {
         }
         return "";
     }
+
 
 }

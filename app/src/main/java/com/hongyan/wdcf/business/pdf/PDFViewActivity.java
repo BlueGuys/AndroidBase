@@ -9,10 +9,6 @@ public class PDFViewActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        PDFHolder pdfHolder = new PDFHolder(this);
-        pdfHolder.setmUrl(getParam("url"));
-        setContentView(pdfHolder.getLayoutId());
+        setContentView(new PDFView(this));
     }
-
-
 }

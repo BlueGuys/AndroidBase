@@ -9,7 +9,7 @@ public class DeviceInfoActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(new DeviceHolder(this).getLayoutId());
+        setContentView(new DeviceInfoView(this));
     }
 
 }

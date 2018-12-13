@@ -22,19 +22,13 @@
             android:id="@+id/item_02"
             style="@style/item_a"
             app:desc=""
-            app:title="禁止在模拟器运行" />
+            app:title="屏幕UI" />
 
         <com.hongyan.wdcf.widget.ItemA
             android:id="@+id/item_03"
             style="@style/item_a"
             app:desc=""
-            app:title="获取设备信息" />
-
-        <com.hongyan.wdcf.widget.ItemA
-            android:id="@+id/item_04"
-            style="@style/item_a"
-            app:desc=""
-            app:title="测试TextView" />
+            app:title="TextView换行" />
     </LinearLayout>
 
 </ScrollView>
