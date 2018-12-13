@@ -5,12 +5,12 @@
     android:background="@color/appBackground"
     android:orientation="vertical">
 
-    <com.hongyan.wdcf.device.DeviceInfoView
+    <com.hongyan.wdcf.business.device.DeviceInfoView
         android:id="@+id/view_device_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <com.hongyan.wdcf.device.DeviceUIView
+    <com.hongyan.wdcf.business.device.DeviceUIView
         android:id="@+id/view_device_ui"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

@@ -6,15 +6,11 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.hongyan.lib_base.R;
 import com.hongyan.loading.LoadingDialog;
 
 /**
@@ -28,25 +24,6 @@ public abstract class BaseActivity extends FragmentActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         init();
-
-    }
-
-    @Override
-    public void setContentView(int layoutResID) {
-        super.setContentView(layoutResID);
-        View rootView = LayoutInflater.from(this).inflate(R.layout.activity_base_common, null, false);
-        LinearLayout contentLayout = rootView.findViewById(R.id.contentLayout);
-        View businessView = LayoutInflater.from(this).inflate(layoutResID, null, false);
-        contentLayout.addView(businessView, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-        super.setContentView(rootView);
-    }
-
-    @Override
-    public void setContentView(View view) {
-        View rootView = LayoutInflater.from(this).inflate(R.layout.activity_base_common, null, false);
-        LinearLayout contentLayout = rootView.findViewById(R.id.contentLayout);
-        contentLayout.addView(view, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-        super.setContentView(rootView);
     }
 
     @Override
