@@ -2,18 +2,34 @@
 	"pageList": [{
 		"id": "001",
 		"name": "com.hongyan.wdcf.business.textview.TextViewTestActivity",
-		"desc": "TextView测试"
+		"desc": "TextView测试",
+		"params": [{
+			"key":"title",
+			"value":"TextView测试"
+		}]
 	}, {
 		"id": "002",
 		"name": "com.hongyan.wdcf.business.device.DeviceInfoActivity",
-		"desc": "UI测试"
+		"desc": "UI测试",
+		"params": [{
+			"key":"title",
+			"value":"TextView测试"
+		}]
 	}, {
 		"id": "002",
 		"name": "com.hongyan.wdcf.business.pdf.PDFViewActivity",
-		"desc": "PDF测试"
+		"desc": "PDF测试",
+		"params": [{
+			"key":"title",
+			"value":"TextView测试"
+		}]
 	}, {
 		"id": "002",
 		"name": "com.hongyan.wdcf.business.asynctask.AsyncTaskTestActivity",
-		"desc": "AsyncTask测试"
+		"desc": "AsyncTask测试",
+		"params": [{
+			"key":"title",
+			"value":"TextView测试"
+		}]
 	}]
 }

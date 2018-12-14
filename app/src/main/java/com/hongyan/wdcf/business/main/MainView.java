@@ -4,17 +4,13 @@ import android.content.Context;
 import android.widget.ListView;
 
 import com.hongyan.base.ActivityView;
-import com.hongyan.base.PageInfo;
+import com.hongyan.base.PageData;
+import com.hongyan.parse.GsonUtils;
 import com.hongyan.wdcf.R;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 
 public class MainView extends ActivityView {
 
@@ -50,24 +46,8 @@ public class MainView extends ActivityView {
             e.printStackTrace();
         }
         String pageListStr = builder.toString();
-        ArrayList<PageInfo> pageInfoArrayList = new ArrayList<>();
-        try {
-            JSONObject data = new JSONObject(pageListStr);
-            JSONArray pageList = data.getJSONArray("pageList");
-            if (pageList != null && pageList.length() > 0) {
-                for (int i = 0; i < pageList.length(); i++) {
-                    JSONObject page = pageList.getJSONObject(i);
-                    PageInfo pageInfo = new PageInfo();
-                    pageInfo.pageId = page.optString("id");
-                    pageInfo.pageName = page.optString("name");
-                    pageInfo.pageDesc = page.optString("desc");
-                    pageInfoArrayList.add(pageInfo);
-                }
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        adapter.setData(pageInfoArrayList);
+        PageData pageData = GsonUtils.gsonResolve(pageListStr, PageData.class);
+        adapter.setData(pageData);
         adapter.notifyDataSetChanged();
     }
 
