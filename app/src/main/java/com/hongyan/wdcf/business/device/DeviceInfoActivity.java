@@ -11,5 +11,4 @@ public class DeviceInfoActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(new DeviceInfoView(this));
     }
-
 }
