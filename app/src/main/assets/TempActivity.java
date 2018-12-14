@@ -9,6 +9,6 @@ public class TempActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(new MainView(this));
+        setContentView(new TempView(this));
     }
 }
