@@ -12,7 +12,6 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
 
-
     <application
         android:name=".base.WDApplication"
         android:allowBackup="true"
@@ -27,7 +26,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.hongyan.TestActivity"/>
+        <activity android:name="com.hongyan.TestActivity" />
         <activity android:name=".business.device.DeviceInfoActivity" />
         <activity android:name=".business.pdf.PDFViewActivity" />
         <activity android:name=".business.asynctask.AsyncTaskTestActivity" />
