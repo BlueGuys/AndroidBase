@@ -2,6 +2,7 @@ package com.hongyan.base;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -64,7 +65,7 @@ public abstract class BaseActivity extends FragmentActivity {
      * 设置状态栏的颜色
      */
     public int setStatusBarColor() {
-        return 0xffdba965;
+        return Color.WHITE;
     }
 
     /**
