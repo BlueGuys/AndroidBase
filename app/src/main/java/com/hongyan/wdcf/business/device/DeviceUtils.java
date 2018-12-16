@@ -167,4 +167,12 @@ public class DeviceUtils {
         return null;
     }
 
+    public static int getRealDimen(int x) {
+        int y = 0;
+        int uiWidth = 750;
+        int screenWidth = 1080;
+        double ratio = uiWidth / screenWidth;
+        return (int) Math.round(y * ratio);
+    }
+
 }
