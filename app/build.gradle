@@ -63,4 +63,5 @@ dependencies {
     implementation project(':lib_widget')
     implementation project(':lib_PullToRefresh')
     implementation 'com.lahm.library:easy-protector-release:1.0.4'
+    implementation 'com.airbnb.android:lottie:1.0.1'
 }

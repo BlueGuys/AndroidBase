@@ -2,19 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#eff2f6"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView1"
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animation_view"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/ds400"
-        android:text="中华人民共和国中华人民共和国中华人民共和国111111111111111111111111" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/ds400"
-        android:text="中华人民共和国中华人民共和国中华人民共和国111111111111111111111111" />
+        android:layout_height="match_parent"
+        app:lottie_fileName="test8.json"
+        app:lottie_loop="true"
+        app:lottie_autoPlay="true" />
 
 </LinearLayout>

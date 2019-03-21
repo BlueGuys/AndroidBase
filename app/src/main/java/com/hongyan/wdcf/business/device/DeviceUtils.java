@@ -43,10 +43,6 @@ public class DeviceUtils {
         return deviceInfo;
     }
 
-    /**
-     * 获取屏幕分辨率
-     * vivoX21(1080,2208)
-     */
     private void displayInfo() {
         int width = 0;
         int height = 0;
